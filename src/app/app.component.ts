@@ -8,13 +8,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AuthService } from './shared/auth.service';
 import { AssignmentsService } from './shared/assignments.service';
+import { ToolbarComponent } from './template/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
-            AssignmentsComponent],
+            AssignmentsComponent, ToolbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
