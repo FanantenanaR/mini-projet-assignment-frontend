@@ -3,7 +3,12 @@
     <a routerLink="/home">{{title}}</a>
   </nav>
 </h1>
-<mat-slide-toggle (click)="login()" color="primary">Login</mat-slide-toggle>
+@if (this.logedIn) {
+  <button mat-raised-button (click)="logout()" color="warn">Logout</button>
+}
+@else {
+  <button mat-raised-button (click)="login()" color="primary">Login</button>
+}
 <button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
 
 <router-outlet></router-outlet>

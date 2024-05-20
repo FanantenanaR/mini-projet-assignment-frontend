@@ -1,0 +1,19 @@
+<div class="header-template">
+  Header
+</div>
+<div class="sidebar-template" style="width: 20vw">
+  <img width="100" src="https://cdn.dribbble.com/userupload/5240807/file/original-53aa3d4f56405d06719553793fc6b0f3.png?resize=1024x1024" alt="avatar">
+  <div class="header-avatar">
+    <h2>Nom User</h2>
+    <p>email</p>
+  </div>
+</div>
+<mat-nav-list>
+  @for(item of menuItems(); track menuItems()) {
+    <a mat-list-item >
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.label}}</span>
+    </a>
+  }
+
+</mat-nav-list>
