@@ -9,13 +9,17 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AuthService } from './shared/auth.service';
 import { AssignmentsService } from './shared/assignments.service';
 import { ToolbarComponent } from './template/toolbar/toolbar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
-            AssignmentsComponent, ToolbarComponent],
+            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
