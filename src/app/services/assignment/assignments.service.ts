@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Assignment } from '../assignments/assignment.model';
+import { Assignment } from '../../assignments/assignment.model';
 import { Observable, forkJoin, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { LoggingService } from './logging.service';
+import { LoggingService } from '../../shared/logging.service';
 import { HttpClient } from '@angular/common/http';
 
 // importation des données de test
-import { bdInitialAssignments } from './data';
+import { bdInitialAssignments } from '../../shared/data';
+import {GenericService} from "../basic/generic.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,36 +16,37 @@ export class AssignmentsService {
   assignments:Assignment[] = [];
 
   constructor(private logService:LoggingService,
-              private http:HttpClient) { }
+              private http:HttpClient,
+              private apiService: GenericService) { }
 
-  uri = 'http://localhost:8010/api/assignments';
+  uri = 'assignment';
   // uri = "https://angularmbdsmadagascar2024.onrender.com/api/assignments";
 
   // retourne tous les assignments
   getAssignments():Observable<Assignment[]> {
-    return this.http.get<Assignment[]>(this.uri);
+    return this.apiService.get<Assignment[]>(this.uri);
   }
 
   getAssignmentsPagines(page:number, limit:number):Observable<any> {
-    return this.http.get<Assignment[]>(this.uri + "?page=" + page + "&limit=" + limit);
+    return this.apiService.get<Assignment[]>(this.uri + "?page=" + page + "&limit=" + limit);
   }
 
   // renvoie un assignment par son id, renvoie undefined si pas trouvé
   getAssignment(id:number):Observable<Assignment|undefined> {
-    return this.http.get<Assignment>(this.uri + "/" + id)
+    return this.apiService.get<Assignment>(this.uri + "/" + id)
     .pipe(
            catchError(this.handleError<any>('### catchError: getAssignments by id avec id=' + id))
-      /*
-      map(a => {
-        a.nom += " MODIFIE PAR LE PIPE !"
-        return a;
-      }),
-      tap(a => console.log("Dans le pipe avec " + a.nom)),
-      map(a => {
-        a.nom += " MODIFIE UNE DEUXIEME FOIS PAR LE PIPE !";
-        return a;
-      })
-      */
+      /**
+       * map(a => {
+       *   a.nom += " MODIFIE PAR LE PIPE !"
+       *   return a;
+       * }),
+       * tap(a => console.log("Dans le pipe avec " + a.nom)),
+       * map(a => {
+       *   a.nom += " MODIFIE UNE DEUXIEME FOIS PAR LE PIPE !";
+       *   return a;
+       * })
+       */
     );
     //let a = this.assignments.find(a => a.id === id);
     //return of(a);
@@ -67,7 +69,7 @@ export class AssignmentsService {
     //this.assignments.push(assignment);
     this.logService.log(assignment.nom, "ajouté");
     //return of("Assignment ajouté avec succès");
-    return this.http.post<Assignment>(this.uri, assignment);
+    return this.apiService.post<Assignment>(this.uri, assignment);
   }
 
   updateAssignment(assignment:Assignment):Observable<any> {
@@ -76,7 +78,7 @@ export class AssignmentsService {
    // il faudra faire une requête HTTP pour envoyer l'objet modifié
     this.logService.log(assignment.nom, "modifié");
     //return of("Assignment modifié avec succès");
-    return this.http.put<Assignment>(this.uri, assignment);
+    return this.apiService.put<Assignment>(this.uri, assignment);
   }
 
   deleteAssignment(assignment:Assignment):Observable<any> {
@@ -85,7 +87,7 @@ export class AssignmentsService {
     //this.assignments.splice(pos, 1);
     this.logService.log(assignment.nom, "supprimé");
     //return of("Assignment supprimé avec succès");
-    return this.http.delete(this.uri + "/" + assignment._id);
+    return this.apiService.delete<any>(this.uri, assignment._id);
   }
 
   // VERSION NAIVE (on ne peut pas savoir quand l'opération des 1000 insertions est terminée)
