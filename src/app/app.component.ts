@@ -12,6 +12,7 @@ import { ToolbarComponent } from './template/toolbar/toolbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
-            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule],
+            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule, ListAssignmentsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
