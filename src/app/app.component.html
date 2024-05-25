@@ -6,7 +6,7 @@
       <a mat-list-item>
         <span>Accueil</span>
       </a>
-      <a mat-list-item>
+      <a mat-list-item [routerLink]="'/list-assignments'">
         <span>Devoirs</span>
       </a>
       <a mat-list-item>
@@ -22,7 +22,7 @@
     </h1>
     <mat-slide-toggle (click)="login()" color="primary">Login</mat-slide-toggle>
     <button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
-    <app-list-assignments></app-list-assignments>
+    <!-- <app-list-assignments></app-list-assignments> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

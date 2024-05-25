@@ -4,6 +4,8 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { authGuard } from './shared/auth.guard';
+import { ListStudentAssignmentsComponent } from './list-student-assignments/list-student-assignments.component';
+import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,5 +16,13 @@ export const routes: Routes = [
     path: "assignment/:id/edit",
     component: EditAssignmentComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: "assignment-student",
+    component: ListStudentAssignmentsComponent
+  },
+  {
+    path: "list-assignments",
+    component: ListAssignmentsComponent
   }
 ];
