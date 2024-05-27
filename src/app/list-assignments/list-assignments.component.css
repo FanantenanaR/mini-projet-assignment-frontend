@@ -1,13 +1,13 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; /* Espace entre les cartes */
-    justify-content: center; /* Centrer les cartes horizontalement */
+    gap: 16px;
+    justify-content: center;
   }
   
   .example-card {
-    width: 300px; /* Définir une largeur pour les cartes */
-    margin: 16px; /* Espace autour des cartes */
+    width: 300px;
+    margin: 16px;
   }
   
   
