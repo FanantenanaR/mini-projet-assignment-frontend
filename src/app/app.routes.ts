@@ -6,6 +6,7 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { authGuard } from './shared/auth.guard';
 import { ListStudentAssignmentsComponent } from './list-student-assignments/list-student-assignments.component';
 import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
+import { DetailAssignmentComponent } from './detail-assignment/detail-assignment.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,5 +25,9 @@ export const routes: Routes = [
   {
     path: "list-assignments",
     component: ListAssignmentsComponent
+  },
+  {
+    path: "detail-assignment",
+    component: DetailAssignmentComponent
   }
 ];

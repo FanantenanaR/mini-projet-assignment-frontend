@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espace entre les cartes */
+    justify-content: center; /* Centrer les cartes horizontalement */
+  }
+  
+  .example-card {
+    width: 300px; /* Définir une largeur pour les cartes */
+    margin: 16px; /* Espace autour des cartes */
+  }
+  
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .card-actions-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
