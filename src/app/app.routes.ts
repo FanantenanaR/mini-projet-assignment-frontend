@@ -7,6 +7,15 @@ import { authGuard } from './shared/auth.guard';
 import {LoginComponent} from "./authentication/login/login.component";
 import {TemplateComponent} from "./layout/template/template.component";
 import {SubmitComponent} from "./assignments/student/submit/submit.component";
+import {ListProfComponent} from "./prof/list-prof/list-prof.component";
+import {ShowProfComponent} from "./prof/show-prof/show-prof.component";
+import {EditProfComponent} from "./prof/edit-prof/edit-prof.component";
+import {CreateProfComponent} from "./prof/create-prof/create-prof.component";
+import {ListSubjectComponent} from "./subject/list-subject/list-subject.component";
+import {ShowSubjectComponent} from "./subject/show-subject/show-subject.component";
+import {EditSubjectComponent} from "./subject/edit-subject/edit-subject.component";
+import {DeleteSubjectComponent} from "./subject/delete-subject/delete-subject.component";
+import {CreateSubjectComponent} from "./subject/create-subject/create-subject.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +30,61 @@ export const routes: Routes = [
   {
     path: "assignment/:id/edit",
     component: EditAssignmentComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof",
+    component: ListProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof/create",
+    component: CreateProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof/:id",
+    component: ShowProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof/:id/edit",
+    component: EditProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof/:id/delete",
+    component: EditProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "prof/:id/delete",
+    component: EditProfComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "subject",
+    component: ListSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "subject/create",
+    component: CreateSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "subject/:id",
+    component: ShowSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "subject/:id/edit",
+    component: EditSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "subject/:id/delete",
+    component: DeleteSubjectComponent,
     canActivate: [authGuard]
   },
   {
