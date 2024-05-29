@@ -19,6 +19,7 @@ import {ShowSubjectComponent} from "./subject/show-subject/show-subject.componen
 import {EditSubjectComponent} from "./subject/edit-subject/edit-subject.component";
 import {DeleteSubjectComponent} from "./subject/delete-subject/delete-subject.component";
 import {CreateSubjectComponent} from "./subject/create-subject/create-subject.component";
+import {CreateAssignmentComponent} from "./create-assignment/create-assignment.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -101,6 +102,10 @@ export const routes: Routes = [
   {
     path: "detail-assignment",
     component: DetailAssignmentComponent
+  },
+  {
+    path: "create-assignment",
+    component: CreateAssignmentComponent,
   },
   {
     path: "auth/login",
