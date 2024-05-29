@@ -1,0 +1,18 @@
+<div class="w-full grid grid-cols-12">
+  <div class="col-start-3 col-span-8 flex flex-col gap-y-2">
+    <h1 class="text-4xl">Prof list</h1>
+    <div class="grid grid-cols-4 gap-x-3 gap-y-2">
+      @for (prof of profList; track prof.firstname ) {
+        <app-card-person
+          [title]="prof.lastname+' '+prof.firstname"
+          [profileUrl]="prof.profilPicture"
+        >
+          <div class="flex flex-row gap-x-2 py-4">
+            <a class="self-center shadow rounded bg-emerald-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/prof/'+prof._id+'/edit'">Editer </a>
+            <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/prof/'+prof._id+'/'">Voir </a>
+          </div>
+        </app-card-person>
+      }
+    </div>
+  </div>
+</div>

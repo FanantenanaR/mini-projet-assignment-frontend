@@ -1,0 +1,71 @@
+<div class=" text-center w-full">
+<div class="grid grid-cols-12  mx-auto">
+  <div class="col-span-12 px-4 pb-2 pt-4">
+    <a class=" flex flex-row gap-x-4 hover:rounded-lg bg-slate-50 hover:bg-slate-100 px-4 py-2 w-fit font-semibold " href="/prof">
+      <mat-icon>arrow_back_ios</mat-icon> Go back to the list
+    </a>
+  </div>
+
+  <div class="col-start-3 col-span-8 flex flex-col gap-y-3 ">
+    @if (prof) {
+      <img [src]="this.profilePicture" class="rounded-full mx-auto w-1/2" [alt]="'profile picture of '+prof.lastname"/>
+      <h3 class="text-3xl font-bold ">{{this.prof?.lastname}} {{this.prof?.firstname}} </h3>
+
+      <table class="w-1/2 my-6 self-center mat-elevation-z0 gap-y-2 ">
+        <tr>
+          <td>email</td>
+          <td class="font-semibold">{{this.prof?.email}}</td>
+        </tr>
+        <tr>
+          <td>Account role</td>
+          <td class="font-semibold">{{this.prof?.isAdmin ? "Admin" : "Prof"}}</td>
+        </tr>
+      </table>
+      <div class="mb-4">
+        <a class="self-center mx-2 shadow rounded bg-cyan-600 text-center px-3 py-2 font-bold text-white my-auto"
+           [href]="'/prof/'+prof._id+'/edit'"
+        >
+          Update information
+        </a>
+        <a class="self-center mx-2 shadow rounded bg-red-600 text-center px-3 py-2 font-bold text-white my-auto"
+           [href]="'/prof/'+prof._id+'/delete'"
+        >
+          Delete Account
+        </a>
+      </div>
+      <div class="flex flex-col gap-y-3  px-8 py-4 border-t-2 ">
+        <h3 class="text-2xl font-semibold">
+          List of subjects
+        </h3>
+        <div class="grid grid-cols-2 gap-x-3 gap-y-4">
+          @if (subjects) {
+            @if (subjects.length > 0) {
+              @for (subject of this.subjects; track subject.title) {
+                <app-card-person
+                  [title]="subject.title"
+                  [roundedProfile]="false"
+                  [profileUrl]="'https://cdn.dribbble.com/users/789654/screenshots/3541232/media/111c5aecce01d714c829bba6f98cbde6.png'"
+                >
+                  <div class="flex flex-row gap-x-2 py-4">
+                    <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/subject/'+subject._id+'/'">Show Detail </a>
+                  </div>
+                </app-card-person>
+              }
+            }
+            @else {
+              <p class="text-center my-6 font-light col-span-2">No data was found </p>
+            }
+          }
+          @else {
+            <p class="text-center my-6 font-light col-span-2">data is loading...</p>
+          }
+        </div>
+      </div>
+    }
+    @else {
+      Prof not found
+    }
+
+  </div>
+</div>
+</div>
