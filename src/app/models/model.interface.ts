@@ -22,5 +22,4 @@ export interface Student {
   firstname: string;
   email: string;
   profilPicture: string;
-}
-
+} 

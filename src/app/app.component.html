@@ -1,21 +1,4 @@
 <app-toolbar></app-toolbar>
-<h1>
-  <nav>
-    <a routerLink="/home">{{title}}</a>
-  </nav>
-</h1>
-@if (this.logedIn) {
-  <button mat-raised-button (click)="logout()" color="warn">Logout</button>
-}
-@else {
-  <button mat-raised-button (click)="login()" color="primary">Login</button>
-}
-<button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
-
-<router-outlet></router-outlet>
-<!--
-<app-assignments></app-assignments>
--->
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav style="width: 10%;background-color: antiquewhite;display: flex;align-items: center;" mode="side" opened>
@@ -32,14 +15,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content style="padding: 20px;">
-    <h1>
-      <nav>
-        <a routerLink="/home">{{title}}</a>
-      </nav>
-    </h1>
-    <mat-slide-toggle (click)="login()" color="primary">Login</mat-slide-toggle>
-    <button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
-    <!-- <app-list-assignments></app-list-assignments> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
