@@ -1,0 +1,25 @@
+<section>
+  <div class="box-border form-box">
+    <div class="form-value">
+      <form action="">
+        <h2>Login</h2>
+        <div class=" mb-4">
+          <h3>Log as {{formData.accountChoice}}</h3>
+          <mat-button-toggle-group [(ngModel)]="formData.accountChoice" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="Prof">Prof</mat-button-toggle>
+            <mat-button-toggle value="Student">Student</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="input_box">
+          <input type="email" required id="login" name="login" [(ngModel)]="formData.login" />
+          <label for="login">Email</label>
+        </div>
+        <div class="input_box">
+          <input type="password" required id="password" name="password" [(ngModel)]="formData.password" />
+          <label for="password">Password</label>
+        </div>
+        <button (click)="login()">LOG IN</button>
+      </form>
+    </div>
+  </div>
+</section>

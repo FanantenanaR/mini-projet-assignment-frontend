@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,40 +7,49 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AuthService } from './shared/auth.service';
-import { AssignmentsService } from './shared/assignments.service';
 import { ToolbarComponent } from './template/toolbar/toolbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
 
+import { AssignmentsService } from './services/assignment/assignments.service';
+import {LoginComponent} from "./authentication/login/login.component";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
-            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule, ListAssignmentsComponent],
+            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule, ListAssignmentsComponent, LoginComponent],
+            
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Application de gestion des assignments';
+  logedIn = false;
+  constructor(private assignmentsService: AssignmentsService,
+              private authService: AuthService,
+              private router:Router) {
+    this.logedIn = this.authService.isLoggedIn();
+  }
 
-  constructor(private authService:AuthService,
-              private assignmentsService: AssignmentsService,
-              private router:Router) {}
+  ngOnInit() {
+    console.log("login init")
+    this.logedIn = this.authService.isLoggedIn();
+  }
+
 
   login() {
-    // on utilise le service d'autentification
-    // pour se connecter ou se déconnecter
-    if(!this.authService.loggedIn) {
-      this.authService.logIn();
-    } else {
-      this.authService.logOut();
-      // on navigue vers la page d'accueil
-      this.router.navigate(['/home']);
-    }
+    this.router.navigate(['/auth/login']);
+  }
+
+  logout() {
+    this.authService.logOut();
+    this.logedIn = false;
+    this.router.navigate(['/auth/login']);
   }
 
   genererDonneesDeTest() {
