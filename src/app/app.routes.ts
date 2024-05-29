@@ -92,7 +92,7 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: "assignment-student",
+    path: "assignment-student/:idAssignment",
     component: ListStudentAssignmentsComponent
   },
   {
@@ -100,7 +100,7 @@ export const routes: Routes = [
     component: ListAssignmentsComponent
   },
   {
-    path: "detail-assignment",
+    path: "detail-assignment/:id",
     component: DetailAssignmentComponent
   },
   {

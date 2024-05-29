@@ -14,5 +14,5 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrl: './detail-assignment.component.css'
 })
 export class DetailAssignmentComponent {
-
+  
 }

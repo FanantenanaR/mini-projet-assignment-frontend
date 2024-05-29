@@ -18,4 +18,8 @@ export class AssignmentStudentService {
   get(id: string) {
     return this.apiService.get<APIResponse<AssignmentStudent>>(`${this.uri}/${id}`);
   }
+
+  getBySubject(subjectId: string) {
+    return this.apiService.get<APIResponse<AssignmentStudent>>(`${this.uri}/subject/${subjectId}`);
+  }
 }

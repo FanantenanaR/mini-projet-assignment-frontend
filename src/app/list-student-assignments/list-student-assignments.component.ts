@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AssignmentStudent } from '../models/model.interface';
+import { AssignmentStudentService } from '../services/assignment/assignment-student.service';
 
 @Component({
   selector: 'app-list-student-assignments',
@@ -10,6 +12,26 @@ import { RouterLink } from '@angular/router';
   templateUrl: './list-student-assignments.component.html',
   styleUrl: './list-student-assignments.component.css'
 })
-export class ListStudentAssignmentsComponent {
+export class ListStudentAssignmentsComponent implements OnInit {
+  assignmentStudentList?: AssignmentStudent[];
 
+  constructor (
+    private assignmentStudentService: AssignmentStudentService,
+    private activeRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    const idAssignment = this.activeRoute.snapshot.params['idAssignment'];
+    console.log('idAssignment', idAssignment);
+    
+      this.assignmentStudentService.getBySubject(`${idAssignment}`).subscribe(
+        (response) => {
+          if (response.datas) {
+            console.log(response.datas);
+            
+            this.assignmentStudentList = response.datas;
+          }
+        }
+      )
+  }
 }

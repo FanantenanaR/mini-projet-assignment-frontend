@@ -14,7 +14,7 @@
               </p>
             </mat-card-content>
             <mat-card-actions class="card-actions-right">
-              <button mat-flat-button color="primary" routerLink="/assignment-student">Voir</button>
+              <button mat-flat-button color="primary" [routerLink]="['/assignment-student', assignment.subject._id]">Voir</button>
             </mat-card-actions>
           </mat-card>
         }
