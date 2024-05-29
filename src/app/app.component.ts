@@ -7,6 +7,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AuthService } from './shared/auth.service';
+import { ToolbarComponent } from './template/toolbar/toolbar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
+
 import { AssignmentsService } from './services/assignment/assignments.service';
 import {LoginComponent} from "./authentication/login/login.component";
 import {FormsModule} from "@angular/forms";
@@ -16,7 +22,8 @@ import {FormsModule} from "@angular/forms";
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
-            AssignmentsComponent, LoginComponent],
+            AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule, ListAssignmentsComponent, LoginComponent],
+            
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

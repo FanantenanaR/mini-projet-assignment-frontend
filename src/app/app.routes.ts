@@ -4,6 +4,9 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { authGuard } from './shared/auth.guard';
+import { ListStudentAssignmentsComponent } from './list-student-assignments/list-student-assignments.component';
+import { ListAssignmentsComponent } from './list-assignments/list-assignments.component';
+import { DetailAssignmentComponent } from './detail-assignment/detail-assignment.component';
 import {LoginComponent} from "./authentication/login/login.component";
 import {TemplateComponent} from "./layout/template/template.component";
 import {SubmitComponent} from "./assignments/student/submit/submit.component";
@@ -86,6 +89,18 @@ export const routes: Routes = [
     path: "subject/:id/delete",
     component: DeleteSubjectComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: "assignment-student",
+    component: ListStudentAssignmentsComponent
+  },
+  {
+    path: "list-assignments",
+    component: ListAssignmentsComponent
+  },
+  {
+    path: "detail-assignment",
+    component: DetailAssignmentComponent
   },
   {
     path: "auth/login",

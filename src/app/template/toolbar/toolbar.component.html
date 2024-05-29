@@ -1,0 +1,15 @@
+
+<mat-toolbar color="primary">
+    <h1>
+      <nav>
+        <a routerLink="/home">{{title}}</a>
+      </nav>
+    </h1>
+    @if (this.logedIn) {
+      <button mat-raised-button (click)="logout()" color="warn">Logout</button>
+    }
+    @else {
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    }
+    <button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
+  </mat-toolbar>
