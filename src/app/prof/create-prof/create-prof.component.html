@@ -1,0 +1,37 @@
+<div class="w-full">
+  <div class="grid grid-cols-12">
+    <div class="col-start-5 col-span-4 flex flex-col rounded shadow p-6 gap-y-4">
+      <h1 class="text-2xl font-bold text-center">Add a new professor</h1>
+      <form class="grid grid-cols-12 gap-y-4">
+        <div class="col-span-3 place-content-center">
+          <label for="firstname" class="my-auto">Firstname</label>
+        </div>
+        <div class="col-span-8">
+          <input name="firstname" id="firstname" [(ngModel)]="formData.firstname" placeholder="Aa" class="px-3 py-2 rounded border w-full"/>
+        </div>
+        <div class="col-span-3 place-content-center">
+          <label for="lastname" class="my-auto">Lastname</label>
+        </div>
+        <div class="col-span-8">
+          <input name="lastname" id="lastname" [(ngModel)]="formData.lastname" placeholder="Aa" class="px-3 py-2 rounded border w-full"/>
+        </div>
+        <div class="col-span-3 place-content-center">
+          <label for="email" class="my-auto">Email</label>
+        </div>
+        <div class="col-span-8">
+          <input name="email" id="email" [(ngModel)]="formData.email" placeholder="Aa" class="px-3 py-2 rounded border w-full"/>
+        </div>
+        <div class="col-span-3 place-content-center">
+          <label for="password" class="my-auto">Password</label>
+        </div>
+        <div class="col-span-8">
+          <input name="password" id="password" [(ngModel)]="formData.password" placeholder="Aa" type="password" class="px-3 py-2 rounded border w-full"/>
+        </div>
+        <div class="col-start-4 col-span-8 justify-end mb-4">
+          <button (click)="doInsertion()" class="rounded bg-blue-600 hover:bg-blue-800 px-4 py-1 text-white w-full font-semibold">Add</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

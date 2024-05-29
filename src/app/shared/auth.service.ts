@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {GenericService} from "../services/basic/generic.service";
-import {Prof, Student, User} from "../models/model.interface";
+import {Prof, Student} from "../models/model.interface";
 
 @Injectable({
   providedIn: 'root'
