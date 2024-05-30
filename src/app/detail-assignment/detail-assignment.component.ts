@@ -46,9 +46,6 @@ export class DetailAssignmentComponent implements OnInit {
   }
 
   evaluateAssignment () {
-    console.log('ok', this.formData.note);
-    console.log('okRemark', this.formData.remark);
-
     this.assignmentProfService.notation(
       this.formData.assignementStudentId,
       this.formData.note,

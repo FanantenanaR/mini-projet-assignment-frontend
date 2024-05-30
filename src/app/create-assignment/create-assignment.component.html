@@ -4,14 +4,14 @@
         <br>
         <mat-form-field class="example-full-width">
             <mat-label>Lien devoir</mat-label>
-            <input matInput>
+            <input matInput name="lien" [(ngModel)]="formData.linkAssignment">
         </mat-form-field>
         <br>
         <mat-form-field class="example-full-width">
             <mat-label>Remarque</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput name="remarque" [(ngModel)]="formData.remarkFromStudent"></textarea>
         </mat-form-field>
-        <button mat-stroked-button color="accent">Accent</button>
+        <button (click)="submitAssignment()" mat-stroked-button color="accent">Accent</button>
     </form>
   </div>
   

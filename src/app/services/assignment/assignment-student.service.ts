@@ -23,5 +23,12 @@ export class AssignmentStudentService {
     return this.apiService.get<APIResponse<AssignmentStudent>>(`${this.uri}/subject/${subjectId}`);
   }
 
-  
+  submitAssignment(assignmentId: string, studentId: string, remarkFromStudent: string, linkAssignment: string) {
+    return this.apiService.post<APIResponse<AssignmentStudent>>(`${this.uri}`, {
+      assignmentId,
+      studentId,
+      remarkFromStudent,
+      linkAssignment
+    });
+  }
 }
