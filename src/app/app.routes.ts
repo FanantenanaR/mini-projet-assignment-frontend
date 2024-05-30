@@ -104,7 +104,7 @@ export const routes: Routes = [
     component: DetailAssignmentComponent
   },
   {
-    path: "create-assignment",
+    path: "student/create-assignment",
     component: CreateAssignmentComponent,
   },
   {
