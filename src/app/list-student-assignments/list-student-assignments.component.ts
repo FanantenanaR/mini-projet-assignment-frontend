@@ -22,13 +22,10 @@ export class ListStudentAssignmentsComponent implements OnInit {
 
   ngOnInit(): void {
     const idAssignment = this.activeRoute.snapshot.params['idAssignment'];
-    console.log('idAssignment', idAssignment);
-    
+   
       this.assignmentStudentService.getBySubject(`${idAssignment}`).subscribe(
         (response) => {
           if (response.datas) {
-            console.log(response.datas);
-            
             this.assignmentStudentList = response.datas;
           }
         }
