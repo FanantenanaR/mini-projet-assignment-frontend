@@ -22,4 +22,6 @@ export class AssignmentStudentService {
   getBySubject(subjectId: string) {
     return this.apiService.get<APIResponse<AssignmentStudent>>(`${this.uri}/subject/${subjectId}`);
   }
+
+  
 }
