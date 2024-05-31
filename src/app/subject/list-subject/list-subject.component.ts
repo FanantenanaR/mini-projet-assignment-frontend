@@ -16,6 +16,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatInput} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-list-subject',
@@ -39,7 +40,8 @@ import {FormsModule} from "@angular/forms";
     MatOption,
     MatFormField,
     MatInput,
-    FormsModule
+    FormsModule,
+    RouterLink
   ],
   templateUrl: './list-subject.component.html',
   styleUrl: './list-subject.component.css'

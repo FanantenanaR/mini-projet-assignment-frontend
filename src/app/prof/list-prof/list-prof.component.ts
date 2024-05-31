@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {CardPersonComponent} from "../../component/card-person/card-person.component";
 import {ProfsService} from "../../services/prof/profs.service";
 import {Prof} from"../../models/model.interface"
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-list-prof',
   standalone: true,
   imports: [
-    CardPersonComponent
+    CardPersonComponent,
+    RouterLink
   ],
   templateUrl: './list-prof.component.html',
   styleUrl: './list-prof.component.css'

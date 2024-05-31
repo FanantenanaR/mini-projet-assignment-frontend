@@ -1,7 +1,7 @@
 <div class=" text-center w-full">
 <div class="grid grid-cols-12  mx-auto">
   <div class="col-span-12 px-4 pb-2 pt-4">
-    <a class=" flex flex-row gap-x-4 hover:rounded-lg bg-slate-50 hover:bg-slate-100 px-4 py-2 w-fit font-semibold " href="/prof">
+    <a class=" flex flex-row gap-x-4 hover:rounded-lg bg-slate-50 hover:bg-slate-100 px-4 py-2 w-fit font-semibold " [routerLink]="'/prof'">
       <mat-icon>arrow_back_ios</mat-icon> Go back to the list
     </a>
   </div>
@@ -23,12 +23,12 @@
       </table>
       <div class="mb-4">
         <a class="self-center mx-2 shadow rounded bg-cyan-600 text-center px-3 py-2 font-bold text-white my-auto"
-           [href]="'/prof/'+prof._id+'/edit'"
+           [routerLink]="'/prof/'+prof._id+'/edit'"
         >
           Update information
         </a>
         <a class="self-center mx-2 shadow rounded bg-red-600 text-center px-3 py-2 font-bold text-white my-auto"
-           [href]="'/prof/'+prof._id+'/delete'"
+           [routerLink]="'/prof/'+prof._id+'/delete'"
         >
           Delete Account
         </a>
@@ -47,7 +47,7 @@
                   [profileUrl]="'https://cdn.dribbble.com/users/789654/screenshots/3541232/media/111c5aecce01d714c829bba6f98cbde6.png'"
                 >
                   <div class="flex flex-row gap-x-2 py-4">
-                    <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/subject/'+subject._id+'/'">Show Detail </a>
+                    <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [routerLink]="'/subject/'+subject._id+'/'">Show Detail </a>
                   </div>
                 </app-card-person>
               }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject} from "../../models/model.interface";
 import {SubjectsService} from "../../services/subject/subjects.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {CardPersonComponent} from "../../component/card-person/card-person.component";
 import {MatIcon} from "@angular/material/icon";
 
@@ -10,7 +10,8 @@ import {MatIcon} from "@angular/material/icon";
   standalone: true,
   imports: [
     CardPersonComponent,
-    MatIcon
+    MatIcon,
+    RouterLink
   ],
   templateUrl: './show-subject.component.html',
   styleUrl: './show-subject.component.css'

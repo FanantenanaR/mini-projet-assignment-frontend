@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Prof, Subject} from "../../models/model.interface";
 import {ProfsService} from "../../services/prof/profs.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {CardPersonComponent} from "../../component/card-person/card-person.component";
 import {SubjectsService} from "../../services/subject/subjects.service";
 import {MatTable} from "@angular/material/table";
@@ -13,7 +13,8 @@ import {MatIcon} from "@angular/material/icon";
   imports: [
     CardPersonComponent,
     MatTable,
-    MatIcon
+    MatIcon,
+    RouterLink
   ],
   templateUrl: './show-prof.component.html',
   styleUrl: './show-prof.component.css'

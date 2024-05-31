@@ -8,8 +8,8 @@
           [profileUrl]="prof.profilPicture"
         >
           <div class="flex flex-row gap-x-2 py-4">
-            <a class="self-center shadow rounded bg-emerald-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/prof/'+prof._id+'/edit'">Editer </a>
-            <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [href]="'/prof/'+prof._id+'/'">Voir </a>
+            <a class="self-center shadow rounded bg-emerald-400 text-center px-3 py-2 font-bold text-white my-auto" [routerLink]="'/prof/'+prof._id+'/edit'">Editer </a>
+            <a class="self-center shadow rounded bg-blue-400 text-center px-3 py-2 font-bold text-white my-auto" [routerLink]="'/prof/'+prof._id+'/'">Voir </a>
           </div>
         </app-card-person>
       }
