@@ -19,6 +19,9 @@ import {ShowSubjectComponent} from "./subject/show-subject/show-subject.componen
 import {EditSubjectComponent} from "./subject/edit-subject/edit-subject.component";
 import {DeleteSubjectComponent} from "./subject/delete-subject/delete-subject.component";
 import {CreateSubjectComponent} from "./subject/create-subject/create-subject.component";
+import {CreateAssignmentComponent} from "./create-assignment/create-assignment.component";
+import { AssignmentNotedComponent } from './assignment-noted/assignment-noted.component';
+import { AssignmentNonNotedComponent } from './assignment-non-noted/assignment-non-noted.component';
 import {GenerateDataComponent} from "./generator/generate-data/generate-data.component";
 
 export const routes: Routes = [
@@ -97,7 +100,7 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: "assignment-student",
+    path: "assignment-student/:idAssignment",
     component: ListStudentAssignmentsComponent
   },
   {
@@ -105,11 +108,23 @@ export const routes: Routes = [
     component: ListAssignmentsComponent
   },
   {
-    path: "detail-assignment",
+    path: "detail-assignment/:id",
     component: DetailAssignmentComponent
+  },
+  {
+    path: "student/create-assignment/:idAssignment",
+    component: CreateAssignmentComponent,
   },
   {
     path: "auth/login",
     component: LoginComponent
+  },
+  {
+    path: "student/noted/:idAssignment",
+    component: AssignmentNotedComponent
+  },
+  {
+    path: "student/non-noted/:idAssignment",
+    component: AssignmentNonNotedComponent
   }
 ];

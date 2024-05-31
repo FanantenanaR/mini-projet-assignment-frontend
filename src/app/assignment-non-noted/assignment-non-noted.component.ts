@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 import { AssignmentStudent } from '../models/model.interface';
 import { AssignmentStudentService } from '../services/assignment/assignment-student.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-list-student-assignments',
+  selector: 'app-assignment-non-noted',
   standalone: true,
   imports: [RouterLink, MatCardModule, MatButtonModule],
-  templateUrl: './list-student-assignments.component.html',
-  styleUrl: './list-student-assignments.component.css'
+  templateUrl: './assignment-non-noted.component.html',
+  styleUrl: './assignment-non-noted.component.css'
 })
-export class ListStudentAssignmentsComponent implements OnInit {
+export class AssignmentNonNotedComponent {
   assignmentStudentList?: AssignmentStudent[];
   idAssignment: string = "";
 
@@ -25,7 +25,7 @@ export class ListStudentAssignmentsComponent implements OnInit {
     const idAssignment = this.activeRoute.snapshot.params['idAssignment'];
     this.idAssignment = idAssignment;
    
-      this.assignmentStudentService.getBySubject(`${idAssignment}`).subscribe(
+      this.assignmentStudentService.getAssignmentNoted(false, `${idAssignment}`).subscribe(
         (response) => {
           if (response.datas) {
             this.assignmentStudentList = response.datas;

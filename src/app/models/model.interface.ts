@@ -46,6 +46,44 @@ export interface Subject {
   prof: string;
   profData?: Prof;
 }
+export interface AssignmentProf {
+  _id: string;
+  title: string;
+  description: string;
+  deadline: Date | null;
+  dateCreated: Date;
+  prof: {
+    _id: string;
+    name: string;
+    profilePicture: string;
+  };
+  subject: {
+    _id: string;
+    title: string;
+    illustration: string;
+  };
+}
+
+export interface AssignmentStudent {
+  _id: string;
+  assignment: {
+    _id: string;
+    title: string;
+    description: string;
+    deadline: Date;
+    dateCreated: Date;
+  };
+  student: {
+    _id: string;
+    name: string;
+    email: string;
+  };
+  remarkFromStudent?: string;
+  dateSubmit: Date;
+  note?: number;
+  dateEvaluation?: Date;
+  remark?: string;
+}
 
 export interface GeneratedData {
   numberProf: number;

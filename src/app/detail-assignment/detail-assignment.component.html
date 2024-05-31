@@ -1,25 +1,26 @@
 <div class="parent-container">
-    <div class="card-info-container">
-      <h1>Assignment.title</h1>
-      <p>Student.firstname et lastname</p>
-      <p>date submit</p>
-    </div>
-
-    <div class="card-form-container">
-      <mat-card class="form-card">
-        <mat-form-field>
-          <mat-label>Note attribuée</mat-label>
-          <input type="number" matInput min="0">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <mat-label>Remarque</mat-label>
-          <textarea matInput></textarea>
-        </mat-form-field>
-        <div class="button-container">
-          <button mat-flat-button color="primary">Enregistrer</button>
-        </div>
-      </mat-card>
-    </div>
+  <div class="card-info-container">
+    <mat-card class="form-card">
+      <mat-card-title>{{assignmentStudent?.assignment?.title}}</mat-card-title>
+      <mat-card-subtitle>{{assignmentStudent?.student?.name}}</mat-card-subtitle>
+      <p>{{assignmentStudent?.remarkFromStudent}}</p>
+    </mat-card>
   </div>
-  
+
+  <div class="card-form-container">
+    <mat-card class="form-card">
+      <mat-form-field>
+        <mat-label>Note attribuée</mat-label>
+        <input type="number" matInput min="0" [(ngModel)]="formData.note">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Remarque</mat-label>
+        <textarea matInput [(ngModel)]="formData.remark"></textarea>
+      </mat-form-field>
+      <div class="button-container">
+        <button (click)="evaluateAssignment()" mat-flat-button color="primary">Enregistrer</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
