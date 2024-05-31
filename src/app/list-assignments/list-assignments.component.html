@@ -1,12 +1,25 @@
-<h1>Les devoirs demandés</h1>
-<div class="card-container">
+<h1 class="text-3xl">Les devoirs demandés</h1>
+<div class="grid grid-cols-12 gap-x-4 gap-y-6 py-6">
+
     @if (this.assignmentProfList) {
       @if (this.assignmentProfList.length > 0) {
         @for (assignment of assignmentProfList; track assignment.title) {
-          <mat-card class="example-card">
+          <mat-card class="col-span-6">
             <mat-card-header>
               <mat-card-title>{{assignment.title}}</mat-card-title>
-              <mat-card-subtitle>{{assignment.subject.title}} - {{assignment.prof.name}}</mat-card-subtitle>
+<!--              <mat-card-subtitle>{{assignment.subject.title}} - {{assignment.prof.name}}</mat-card-subtitle>-->
+              <mat-card-subtitle>
+                <div class="flex flex-row gap-x-4">
+                  <div class="basis-1/2 mx-auto bg-slate-50 py-1 rounded-lg flex flex-row place-items-center gap-x-4 px-4 mb-2">
+                    <img class="rounded-full h-12" [src]="assignment.subject.illustration"/>
+                    <span>{{assignment.subject.title}}</span>
+                  </div>
+                  <div class="basis-1/2 mx-auto bg-slate-50 py-1 rounded-lg flex flex-row place-items-center gap-x-4 px-4 mb-2">
+                    <img class="rounded-full h-12" [src]="assignment.prof.profilePicture"/>
+                    <span>{{assignment.prof.name}}</span>
+                  </div>
+                </div>
+              </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
               <p>
@@ -14,8 +27,13 @@
               </p>
             </mat-card-content>
             <mat-card-actions class="card-actions-right">
-              <button mat-flat-button color="primary" [routerLink]="['/student/create-assignment', assignment._id]">Rendre</button>
-              <button mat-flat-button color="primary" [routerLink]="['/assignment-student', assignment.subject._id]">Voir</button>
+              @if (this.isProf()) {
+                <button mat-flat-button color="primary" [routerLink]="['/assignment-student', assignment.subject._id]">Voir</button>
+              }
+              @else {
+                <button mat-flat-button color="primary" [routerLink]="['/student/create-assignment', assignment._id]">Rendre</button>
+              }
+
             </mat-card-actions>
           </mat-card>
         }

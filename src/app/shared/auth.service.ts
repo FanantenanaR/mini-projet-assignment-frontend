@@ -27,6 +27,14 @@ export class AuthService {
     });
   }
 
+  getIdStudent() {
+    return this.studentInformation?._id ?? "";
+  }
+
+  isProf() {
+    return this.typeCompte === "Prof";
+  }
+
   isLoggedIn() {
     if (this.loggedIn) return true;
     const information = localStorage.getItem(this.keyStorage);

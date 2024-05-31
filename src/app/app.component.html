@@ -8,16 +8,27 @@
           <mat-icon>home</mat-icon>
           <span>Home</span>
         </a>
-        <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
-            [routerLink]="'/prof'"
-        >
-          <mat-icon>person</mat-icon> Professor
-        </a>
-        <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
-            [routerLink]="'/subject'"
-        >
-          <mat-icon>subject</mat-icon> Subject
-        </a>
+        @if (this.isProf()) {
+          <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
+              [routerLink]="'/prof'"
+          >
+            <mat-icon>person</mat-icon> Professor
+          </a>
+        }
+        @if (this.isProf()) {
+          <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
+              [routerLink]="'/subject'"
+          >
+            <mat-icon>subject</mat-icon> Subject
+          </a>
+        }
+        @if (this.isProf()) {
+          <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
+              [routerLink]="'/generator'"
+          >
+            <mat-icon>subject</mat-icon> Generate Data
+          </a>
+        }
         <a  class=" flex flex-row gap-x-4 rounded-lg hover:rounded-xl bg-slate-50 hover:bg-slate-100 px-4 py-2 w-full font-semibold "
             [routerLink]="'/list-assignments'"
         >

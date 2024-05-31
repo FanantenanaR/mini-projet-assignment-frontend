@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { AssignmentProfService } from '../services/assignment/assignment-prof.service';
 import { AssignmentStudentService } from '../services/assignment/assignment-student.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'app-create-assignment',
@@ -27,17 +28,19 @@ export class CreateAssignmentComponent implements OnInit {
 
   constructor (
     private assignmentStudentService: AssignmentStudentService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private authService: AuthService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
     this.formData.linkAssignment = "";
     this.formData.remarkFromStudent = "";
   }
-  
+
   submitAssignment () {
     const idAssignment = this.activateRoute.snapshot.params['idAssignment'];
-    const studentId = '665787ee4aaa295bd316c9bf';
+    const studentId = this.authService.getIdStudent();
     this.assignmentStudentService.submitAssignment(
       idAssignment,
       studentId,
@@ -47,8 +50,7 @@ export class CreateAssignmentComponent implements OnInit {
       async (result) => {
         if (result) {
           if (result.data) {
-            console.log('ok submit', result.data);
-            
+            await this.route.navigateByUrl("list-assignments");
           }
         }
       }

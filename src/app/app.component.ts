@@ -23,7 +23,7 @@ import {FormsModule} from "@angular/forms";
   imports: [RouterOutlet, RouterLink, MatButtonModule, MatDividerModule,
             MatIconModule, MatSlideToggleModule,
             AssignmentsComponent, ToolbarComponent, MatSidenavModule, MatListModule, MatToolbarModule, MatIconModule, ListAssignmentsComponent, LoginComponent],
-            
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -46,6 +46,9 @@ export class AppComponent implements OnInit {
     // this.logedIn = this.authService.isLoggedIn();
   }
 
+  isProf() {
+    return this.authService.isProf();
+  }
 
   login() {
     this.router.navigate(['/auth/login']);
