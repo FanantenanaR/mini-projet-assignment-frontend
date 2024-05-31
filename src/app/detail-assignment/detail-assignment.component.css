@@ -1,0 +1,24 @@
+.parent-container {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-start; 
+  }
+  
+  .card-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-card {
+    width: 300px;
+    max-width: 500px;
+    margin: 16px;
+    padding: 2%;
+  }
+  
+  .card-info-container {
+    flex: 1; 
+    margin: 16px;
+  }
+  

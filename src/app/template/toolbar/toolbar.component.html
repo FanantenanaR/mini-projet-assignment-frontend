@@ -1,0 +1,24 @@
+
+<mat-toolbar >
+  <div class="flex flex-row justify-between w-full">
+    <div>
+      <h1>
+        <nav>
+          <a routerLink="/home">{{title}}</a>
+        </nav>
+      </h1>
+    </div>
+    <div>
+      @if (this.logedIn) {
+        <button mat-raised-button (click)="logout()" color="warn">Logout</button>
+      }
+      @else {
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+      }
+      <button mat-button (click)="genererDonneesDeTest()">Peupler BD</button>
+
+    </div>
+  </div>
+
+
+  </mat-toolbar>

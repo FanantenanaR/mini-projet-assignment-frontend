@@ -1,0 +1,40 @@
+<div class=" text-center w-full">
+  <div class="grid grid-cols-12  mx-auto">
+    <div class="col-span-12 px-4 pb-2 pt-4">
+      <a class=" flex flex-row gap-x-4 hover:rounded-lg bg-slate-50 hover:bg-slate-100 px-4 py-2 w-fit font-semibold " href="/subject">
+        <mat-icon>arrow_back_ios</mat-icon> Go back to the list
+      </a>
+    </div>
+
+    <div class="col-start-3 col-span-8 flex flex-col gap-y-3 ">
+      @if (this.subject) {
+        <img [src]="this.subject.illustration" class="rounded-xl mx-auto w-1/2" [alt]="'profile illustration'"/>
+        <h3 class="text-3xl font-bold ">{{this.subject.title}} </h3>
+
+        @if (this.subject.profData) {
+          <div class="rounded-xl bg-slate-200 mx-auto flex flex-row place-items-center gap-x-4 py-2 px-4 mb-4">
+            <img class="rounded-full h-12" src="https://cdn.dribbble.com/users/1993267/screenshots/6076190/people-practice_001-01-01_4x.png?resize=768x576&vertical=center"/>
+            <span>{{this.subject.profData.firstname}} {{this.subject.profData.lastname}}</span>
+          </div>
+        }
+        <div class="mb-4">
+          <a class="self-center mx-2 shadow rounded bg-cyan-600 text-center px-3 py-2 font-bold text-white my-auto"
+             [href]="'/subject/'+this.subject._id+'/edit'"
+          >
+            Update information
+          </a>
+          <a class="self-center mx-2 shadow rounded bg-red-600 text-center px-3 py-2 font-bold text-white my-auto"
+             [href]="'/subject/'+this.subject._id+'/delete'"
+          >
+            Delete Subject
+          </a>
+        </div>
+
+      }
+      @else {
+        Subject not found
+      }
+
+    </div>
+  </div>
+</div>
