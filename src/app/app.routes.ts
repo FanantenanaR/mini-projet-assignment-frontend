@@ -20,6 +20,8 @@ import {EditSubjectComponent} from "./subject/edit-subject/edit-subject.componen
 import {DeleteSubjectComponent} from "./subject/delete-subject/delete-subject.component";
 import {CreateSubjectComponent} from "./subject/create-subject/create-subject.component";
 import {CreateAssignmentComponent} from "./create-assignment/create-assignment.component";
+import { AssignmentNotedComponent } from './assignment-noted/assignment-noted.component';
+import { AssignmentNonNotedComponent } from './assignment-non-noted/assignment-non-noted.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -110,5 +112,13 @@ export const routes: Routes = [
   {
     path: "auth/login",
     component: LoginComponent
+  },
+  {
+    path: "student/noted/:idAssignment",
+    component: AssignmentNotedComponent
+  },
+  {
+    path: "student/non-noted/:idAssignment",
+    component: AssignmentNonNotedComponent
   }
 ];

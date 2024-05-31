@@ -1,0 +1,36 @@
+
+<div class="example-button-row">
+    <button mat-flat-button color="primary" [routerLink]="['/assignment-student', idAssignment]">Tous les devoirs</button>
+    <button mat-flat-button color="primary" [routerLink]="['/student/noted/', idAssignment]">Devoirs notés</button>
+    <button mat-flat-button color="accent" [routerLink]="['/student/non-noted/', idAssignment]">Devoirs non notés</button>
+  </div>
+  <br>
+  <div class="card-container">
+    @if (this.assignmentStudentList) {
+      @if (this.assignmentStudentList.length > 0) {
+        @for (assignment of assignmentStudentList; track assignment) {
+  
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{assignment.assignment.title}}</mat-card-title>
+              <mat-card-subtitle>{{assignment.student.name}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{assignment.remarkFromStudent}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions class="card-actions-right">
+              @if (assignment.note) {
+                <p style="color: red;">{{assignment.note}}/20</p>
+                <button mat-flat-button color="primary" [routerLink]="['/detail-assignment', assignment._id]">Voir</button>
+              } @else {
+                <button mat-flat-button color="primary" [routerLink]="['/detail-assignment', assignment._id]">Noter</button>
+              }
+              
+            </mat-card-actions>
+          </mat-card>
+        }
+      }
+    }
+  </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GenericService } from '../basic/generic.service';
-import { APIResponse, AssignmentStudent } from '../../models/model.interface';
+import { APIResponse, APIResponsePaginated, AssignmentStudent } from '../../models/model.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +30,9 @@ export class AssignmentStudentService {
       remarkFromStudent,
       linkAssignment
     });
+  }
+
+  getAssignmentStudentPaginate(page:number, limit:number) {
+    return this.apiService.get<APIResponsePaginated<AssignmentStudent>>(this.uri + "?page=" + page + "&limit=" + limit);
   }
 }

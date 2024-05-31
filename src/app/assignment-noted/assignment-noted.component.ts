@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AssignmentStudent } from '../models/model.interface';
 import { AssignmentStudentService } from '../services/assignment/assignment-student.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-list-student-assignments',
+  selector: 'app-assignment-noted',
   standalone: true,
   imports: [RouterLink, MatCardModule, MatButtonModule],
-  templateUrl: './list-student-assignments.component.html',
-  styleUrl: './list-student-assignments.component.css'
+  templateUrl: './assignment-noted.component.html',
+  styleUrl: './assignment-noted.component.css'
 })
-export class ListStudentAssignmentsComponent implements OnInit {
+export class AssignmentNotedComponent implements OnInit {
   assignmentStudentList?: AssignmentStudent[];
   idAssignment: string = "";
 
