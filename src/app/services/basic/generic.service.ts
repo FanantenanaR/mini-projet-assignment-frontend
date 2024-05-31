@@ -18,7 +18,8 @@ export interface ApiResponse <T> {
 export class GenericService {
 
   error: any = {};
-  private baseUrl: string = "http://localhost:8010/api";
+  // private baseUrl: string = "http://localhost:8010/api";
+  private baseUrl: string = "https://mini-projet-assignment-backend.onrender.com/api";
   constructor(private ErrorService: ErrorService, private http: HttpClient) {
     this.ErrorService.data$.subscribe((value) => (this.error = value));
   }

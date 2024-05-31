@@ -26,7 +26,7 @@ import {GenerateDataComponent} from "./generator/generate-data/generate-data.com
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: AssignmentsComponent ,
+  { path: 'home', component: ListAssignmentsComponent ,
     canActivate: [authGuard]},
   { path: 'template', component: TemplateComponent },
   { path: 'assignment/:id/submit', component: SubmitComponent ,
