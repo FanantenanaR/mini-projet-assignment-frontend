@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { AssignmentProf } from '../models/model.interface';
 import { AssignmentProfService } from '../services/assignment/assignment-prof.service';
+import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'app-list-assignments',
@@ -15,7 +16,8 @@ import { AssignmentProfService } from '../services/assignment/assignment-prof.se
 export class ListAssignmentsComponent implements OnInit {
   assignmentProfList?: AssignmentProf[];
 
-  constructor (private assignmentProfService: AssignmentProfService) {}
+  constructor (private assignmentProfService: AssignmentProfService,
+               private authService: AuthService) {}
 
   ngOnInit(): void {
     this.assignmentProfService.getAll().subscribe(
@@ -25,5 +27,9 @@ export class ListAssignmentsComponent implements OnInit {
         }
       }
     )
+  }
+
+  isProf() {
+    return this.authService.isProf();
   }
 }
