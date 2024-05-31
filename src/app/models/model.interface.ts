@@ -47,3 +47,10 @@ export interface Subject {
   profData?: Prof;
 }
 
+export interface GeneratedData {
+  numberProf: number;
+  numberStudent: number;
+  numberSubject: number;
+  numberAssignmentProf: number;
+  numberAssignmentStudent: number;
+}

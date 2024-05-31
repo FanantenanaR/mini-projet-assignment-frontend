@@ -25,7 +25,6 @@ export class GenericService {
   get<T>(path: string): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${path}`).pipe(
       catchError((error: HttpErrorResponse) => {
-        // Gérez l'erreur ici
         this.error = {
           statut: true,
           message: error.message,

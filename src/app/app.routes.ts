@@ -19,6 +19,7 @@ import {ShowSubjectComponent} from "./subject/show-subject/show-subject.componen
 import {EditSubjectComponent} from "./subject/edit-subject/edit-subject.component";
 import {DeleteSubjectComponent} from "./subject/delete-subject/delete-subject.component";
 import {CreateSubjectComponent} from "./subject/create-subject/create-subject.component";
+import {GenerateDataComponent} from "./generator/generate-data/generate-data.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -88,6 +89,11 @@ export const routes: Routes = [
   {
     path: "subject/:id/delete",
     component: DeleteSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "generator",
+    component: GenerateDataComponent,
     canActivate: [authGuard]
   },
   {
