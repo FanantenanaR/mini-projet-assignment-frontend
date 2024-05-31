@@ -22,6 +22,7 @@ import {CreateSubjectComponent} from "./subject/create-subject/create-subject.co
 import {CreateAssignmentComponent} from "./create-assignment/create-assignment.component";
 import { AssignmentNotedComponent } from './assignment-noted/assignment-noted.component';
 import { AssignmentNonNotedComponent } from './assignment-non-noted/assignment-non-noted.component';
+import {GenerateDataComponent} from "./generator/generate-data/generate-data.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -91,6 +92,11 @@ export const routes: Routes = [
   {
     path: "subject/:id/delete",
     component: DeleteSubjectComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "generator",
+    component: GenerateDataComponent,
     canActivate: [authGuard]
   },
   {

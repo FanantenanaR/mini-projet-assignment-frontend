@@ -85,3 +85,10 @@ export interface AssignmentStudent {
   remark?: string;
 }
 
+export interface GeneratedData {
+  numberProf: number;
+  numberStudent: number;
+  numberSubject: number;
+  numberAssignmentProf: number;
+  numberAssignmentStudent: number;
+}

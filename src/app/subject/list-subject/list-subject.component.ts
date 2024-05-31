@@ -50,13 +50,13 @@ export class ListSubjectComponent implements OnInit {
   searchInput = "";
   orderBy = "title.asc";
 
-  displayedColumns: string[] = ['title', 'prof', 'action'];
+  displayedColumns: string[] = ['illustration','title', 'prof', 'action'];
 
   constructor(private subjectService: SubjectsService) {
   }
 
   ngOnInit() {
-    this.subjectService.getAll().subscribe(
+    this.subjectService.getAll(null, null, this.orderBy, false).subscribe(
       (result) => {
         if (result.docs) {
           this.listSubject = result.docs;
@@ -67,7 +67,8 @@ export class ListSubjectComponent implements OnInit {
 
   applyFilter() {
     this.subjectService.getAll(
-      this.searchInput, null, this.orderBy
+      this.searchInput, null, this.orderBy,
+      false
     ).subscribe(
       (result) => {
         if (result.docs) {

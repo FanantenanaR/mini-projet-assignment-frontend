@@ -1,0 +1,17 @@
+<div class="px-4 py-6 flex flex-col gap-y-4">
+  <div class="">
+    <button class="text-white bg-blue-600 px-4 py-2 rounded shadow" (click)="generateNow()">Generate Data</button>
+  </div>
+  @if (isLoading) {
+    <div>Loading...</div>
+  }
+  @else {
+    <div class="flex flex-col">
+      <div>Prof: {{generatedDataResult.numberProf}}</div>
+      <div>Subject: {{generatedDataResult.numberSubject}}</div>
+      <div>Student: {{generatedDataResult.numberStudent}}</div>
+      <div>Assignment given by Prof: {{generatedDataResult.numberAssignmentProf}}</div>
+      <div>Assignment sent from student: {{generatedDataResult.numberAssignmentStudent}}</div>
+    </div>
+  }
+</div>

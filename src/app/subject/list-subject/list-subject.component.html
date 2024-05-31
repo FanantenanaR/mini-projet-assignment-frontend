@@ -33,6 +33,12 @@
           @if (listSubject.length > 0) {
             <table mat-table [dataSource]="listSubject">
               <!-- Nom Column -->
+              <ng-container matColumnDef="illustration">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let a">
+                  <img class="rounded-lg h-12 mx-auto" [src]="a.illustration"/>
+                </td>
+              </ng-container>
               <ng-container matColumnDef="title">
                 <th mat-header-cell *matHeaderCellDef>Title</th>
                 <td mat-cell *matCellDef="let a">{{a.title}}</td>
