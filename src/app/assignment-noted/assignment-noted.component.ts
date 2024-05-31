@@ -25,7 +25,7 @@ export class AssignmentNotedComponent implements OnInit {
     const idAssignment = this.activeRoute.snapshot.params['idAssignment'];
     this.idAssignment = idAssignment;
    
-      this.assignmentStudentService.getBySubject(`${idAssignment}`).subscribe(
+      this.assignmentStudentService.getAssignmentNoted(true, `${idAssignment}`).subscribe(
         (response) => {
           if (response.datas) {
             this.assignmentStudentList = response.datas;

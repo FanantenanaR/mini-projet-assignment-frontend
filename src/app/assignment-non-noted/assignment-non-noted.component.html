@@ -21,13 +21,7 @@
               </p>
             </mat-card-content>
             <mat-card-actions class="card-actions-right">
-              @if (assignment.note) {
-                <p style="color: red;">{{assignment.note}}/20</p>
-                <button mat-flat-button color="primary" [routerLink]="['/detail-assignment', assignment._id]">Voir</button>
-              } @else {
                 <button mat-flat-button color="primary" [routerLink]="['/detail-assignment', assignment._id]">Noter</button>
-              }
-              
             </mat-card-actions>
           </mat-card>
         }

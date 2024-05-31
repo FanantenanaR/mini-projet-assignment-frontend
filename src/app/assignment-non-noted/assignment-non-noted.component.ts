@@ -25,7 +25,7 @@ export class AssignmentNonNotedComponent {
     const idAssignment = this.activeRoute.snapshot.params['idAssignment'];
     this.idAssignment = idAssignment;
    
-      this.assignmentStudentService.getBySubject(`${idAssignment}`).subscribe(
+      this.assignmentStudentService.getAssignmentNoted(false, `${idAssignment}`).subscribe(
         (response) => {
           if (response.datas) {
             this.assignmentStudentList = response.datas;

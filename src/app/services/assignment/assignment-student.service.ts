@@ -35,4 +35,8 @@ export class AssignmentStudentService {
   getAssignmentStudentPaginate(page:number, limit:number) {
     return this.apiService.get<APIResponsePaginated<AssignmentStudent>>(this.uri + "?page=" + page + "&limit=" + limit);
   }
+
+  getAssignmentNoted(isNoted: boolean, subjectId: string) {
+    return this.apiService.get<APIResponse<AssignmentStudent>>(`${this.uri}/noted/${isNoted}/${subjectId}`);
+  }
 }
